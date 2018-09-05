@@ -1,0 +1,30 @@
+info:
+  component: admin-server
+  
+encrypt:
+  failOnError: false
+  key: abcdef
+  
+spring:
+  application:
+    name: admin-server
+  profiles:
+    active: local
+  cloud:
+    config:
+      fail-fast: false
+      label: development
+      uri: http://localhost:8888
+      username: root
+      password: '{cipher}3fb2a2a25d3143ee052178842685af1a49a6e4d926c8bf44f8160c3609f7d1b6'
+
+---
+ spring:
+  profiles: bamboo
+  cloud:
+    config:
+      uri: http://mjms1ap01d.unix.ctcwest.ctc:8888
+      label: development
+      username: root
+      password: '{cipher}3fb2a2a25d3143ee052178842685af1a49a6e4d926c8bf44f8160c3609f7d1b6'
+---

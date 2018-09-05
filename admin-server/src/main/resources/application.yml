@@ -1,0 +1,30 @@
+server:
+  port: 8766
+  
+info:
+  component: admin Server
+
+# enable all actuator endpoints - tremendously useful for troubleshooting properties, mappings, etc. of running services
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+---
+spring:
+  profiles: local
+  
+eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+logging.file: logs/admin-server.log
+
+authorizedUsers:
+  admin-name: admin
+  admin-password: '{cipher}d952c3708fb8e106064c18af7395702ebc7af8ea9ec3ec632ef75d37c330a45d'
+  admin-role: ADMIN
+  user-name: user
+  user-password: '{cipher}42573ada6beb071a3869d8073d28d1e78ac828fb4973026403d9a1c30eb41a06'
+  user-role: USER
+---

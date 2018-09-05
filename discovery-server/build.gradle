@@ -1,0 +1,87 @@
+buildscript {
+
+    
+
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.3.RELEASE")
+    }
+}
+
+allprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+
+
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+
+
+    ext {
+        springCloudVersion = 'Finchley.SR1'
+    }
+
+    // these are common and included in all support projects
+    dependencies {
+
+        compile("org.springframework.cloud:spring-cloud-starter-config")
+
+
+		compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
+		compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+	
+        // lombok
+        compile("org.projectlombok:lombok")
+
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
+
+    task integrationTest(type: Test) {
+        // all integration tests should point to config server on mjms1ap01d and run under bamboo profile
+        systemProperties['spring.profiles.active'] = 'bamboo'
+        useJUnit {
+            includeCategories 'com.marks.support.tests.IntegrationTest'
+        }
+    }
+
+    test {
+        // all integration tests should point to config server on mjms1ap01d and run under bamboo profile
+        systemProperties['spring.profiles.active'] = 'local'
+        useJUnit {
+            includeCategories 'com.ness.hackathon.support.tests.IntegrationTest'
+        }
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+
+    group = 'com.marks'
+
+}
+
+jar {
+    baseName = 'discovery-server'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.4.1'
+}

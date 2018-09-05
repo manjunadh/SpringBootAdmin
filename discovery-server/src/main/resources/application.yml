@@ -1,0 +1,72 @@
+server:
+  port: 8761
+
+security:
+  user:
+    password: ${eureka.password} # Don't use a default password in a real app
+
+info:
+  component: Discovery Server
+
+#disable config server health check
+health.config.enabled: false
+
+eureka:
+  client:
+    registerWithEureka: true
+    #Indicates whether this client should fetch eureka registry information from eureka server.
+    fetchRegistry: false
+  instance:
+    # Indicates how often (in seconds) the eureka client needs to send heartbeats to
+    # eureka server to indicate that it is still alive.
+    leaseRenewalIntervalInSeconds: 20
+    # Indicates the time in seconds that the eureka server waits since it received the
+    # last heartbeat before it can remove this instance from its view and there by
+    # disallowing traffic to this instance.
+    # This value to be set to atleast higher than the value specified in leaseRenewalIntervalInSeconds.
+    leaseExpirationDurationInSeconds: 30
+    # Spring Boot 2.0 has health and info endpoints under /actuator now
+    # For some reason Spring Cloud Eureka doesn't seem to know this so we manually set it on each client
+    statusPageUrlPath: /actuator/info
+    healthCheckUrlPath: /actuator/health
+
+  server:
+    enableSelfPreservation: false
+    numberRegistrySyncRetries: 1
+
+  password: ${SECURITY_USER_PASSWORD:password}
+
+# enable all actuator endpoints - tremendously useful for troubleshooting properties, mappings, etc. of running services
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  root: WARN
+
+---
+spring:
+  profiles: development
+logging:
+  level:
+    org.springframework.boot.context.embedded.tomcat: INFO  # Required for deploy script to be able to read port number from log file
+logging.file: /apps/microservices/logs/support/discovery-server.log
+---
+spring:
+  profiles: local
+  
+logging:
+  level:
+    com.marks.support: INFO
+    org.apache: ERROR
+    org.springframework: ERROR
+    org.springframework.boot.context.embedded.tomcat: INFO  # Required for deploy script to be able to read port number from log file
+    springfox.documentation: ERROR
+    org.hibernate: ERROR
+    com.netflix: ERROR
+    
+eureka.client.serviceUrl.defaultZone: ${service-registry.uri:http://localhost:8761}/eureka/
+logging.file: logs/discovery-server.log
+---

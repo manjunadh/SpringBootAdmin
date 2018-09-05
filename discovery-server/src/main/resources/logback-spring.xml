@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	 <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	 <property name="CONSOLE_LOG_PATTERN"
+        value="%d{yyyy-MM-dd HH:mm:ss.SSS Z} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } -- [%thread] %logger{60} : %msg%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+	<springProfile name="local,bamboo">​
+    <appender name="dailyRollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/discovery-server.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>logs/discovery-server.%d{yyyy-MM-dd}_%i.gz</fileNamePattern>
+            <maxHistory>7</maxHistory>
+            <maxFileSize>10MB</maxFileSize>
+			<!--  or upto total combined log size less than 100MB -->
+		    <totalSizeCap>100MB</totalSizeCap>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+	</springProfile>
+	
+	<springProfile name="development,qa1,qa2,qa3,pp,prod">​
+    <appender name="dailyRollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/apps/microservices/logs/support/discovery-server.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>/apps/microservices/logs/support/discovery-server.%d{yyyy-MM-dd}_%i.gz</fileNamePattern>
+            <maxHistory>7</maxHistory>
+            <maxFileSize>10MB</maxFileSize>
+			<!--  or upto total combined log size less than 1GB -->
+		    <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+	</springProfile>
+	
+    <appender name="consoleRolling" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+
+    <root level="INFO">
+        <appender-ref ref="dailyRollingFile"/>
+        <appender-ref ref="consoleRolling"/>
+    </root>
+
+</configuration>

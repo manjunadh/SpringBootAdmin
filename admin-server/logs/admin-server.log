@@ -1,0 +1,150 @@
+2018-09-05 14:08:37.882 +0530  INFO 5904 -- [main] o.s.context.annotation.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@7b36aa0c: startup date [Wed Sep 05 14:08:37 IST 2018]; root of context hierarchy
+2018-09-05 14:08:38.624 +0530  INFO 5904 -- [main] o.s.b.f.annotation.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-09-05 14:08:38.685 +0530  INFO 5904 -- [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$905ed37b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-09-05 14:08:39.566 +0530  INFO 5904 -- [main] o.s.cloud.config.client.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:8888
+2018-09-05 14:08:40.712 +0530  INFO 5904 -- [main] o.s.cloud.config.client.ConfigServicePropertySourceLocator : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2018-09-05 14:08:40.713 +0530  WARN 5904 -- [main] o.s.cloud.config.client.ConfigServicePropertySourceLocator : Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/admin-server/local/development": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+2018-09-05 14:08:40.734 +0530  INFO 5904 -- [main] com.marks.support.adminserver.AdminServerApplication : The following profiles are active: local
+2018-09-05 14:08:40.759 +0530  INFO 5904 -- [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2b58f754: startup date [Wed Sep 05 14:08:40 IST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@7b36aa0c
+2018-09-05 14:08:42.620 +0530  INFO 5904 -- [main] org.springframework.cloud.context.scope.GenericScope : BeanFactory id=86edb119-808b-3049-a090-cdf4d4b18e05
+2018-09-05 14:08:42.651 +0530  INFO 5904 -- [main] o.s.b.f.annotation.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-09-05 14:08:42.823 +0530  INFO 5904 -- [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$905ed37b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-09-05 14:08:43.384 +0530  INFO 5904 -- [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http)
+2018-09-05 14:08:43.424 +0530  INFO 5904 -- [main] org.apache.catalina.core.StandardService : Starting service [Tomcat]
+2018-09-05 14:08:43.425 +0530  INFO 5904 -- [main] org.apache.catalina.core.StandardEngine : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-09-05 14:08:43.436 +0530  INFO 5904 -- [localhost-startStop-1] org.apache.catalina.core.AprLifecycleListener : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jre1.8.0_102\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_102/bin/server;C:/Program Files/Java/jre1.8.0_102/bin;C:/Program Files/Java/jre1.8.0_102/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Program Files\Dell\DW WLAN Card;;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64:C:\Program Files\Java\jdk1.8.0_102;C:\Program Files\nodejs\;C:\Users\p7111009\AppData\Local\Programs\Python\Launcher\;C:\Program Files (x86)\Google\Chrome\Application;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Program Files\Dell\DW WLAN Card;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64:D:\Deployment\jdk1.8.0_102;D:\Deployment\Git\cmd;C:\Program Files\nodejs\node_modules\npm;D:\Deployment\gradle\gradle-4.5.1\bin;D:\Deployment\Python\Python36-32;D:\Deployment\Python\Python36-32\Scripts;D:\Deployment\jdk1.8.0_102\lib;D:\Deployment\jdk1.8.0_102\jre\lib;D:\Deployment\eclipse;;.]
+2018-09-05 14:08:43.724 +0530  INFO 5904 -- [localhost-startStop-1] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2018-09-05 14:08:43.724 +0530  INFO 5904 -- [localhost-startStop-1] org.springframework.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 2965 ms
+2018-09-05 14:08:44.234 +0530  WARN 5904 -- [localhost-startStop-1] com.netflix.config.sources.URLConfigurationSource : No URLs will be polled as dynamic configuration sources.
+2018-09-05 14:08:44.235 +0530  INFO 5904 -- [localhost-startStop-1] com.netflix.config.sources.URLConfigurationSource : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-09-05 14:08:44.255 +0530  INFO 5904 -- [localhost-startStop-1] com.netflix.config.DynamicPropertyFactory : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@46f060c9
+2018-09-05 14:08:45.874 +0530  INFO 5904 -- [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-09-05 14:08:45.874 +0530  INFO 5904 -- [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-09-05 14:08:45.875 +0530  INFO 5904 -- [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-09-05 14:08:45.875 +0530  INFO 5904 -- [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean : Mapping filter: 'requestContextFilter' to: [/*]
+2018-09-05 14:08:45.875 +0530  INFO 5904 -- [localhost-startStop-1] o.s.boot.web.servlet.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-09-05 14:08:45.876 +0530  INFO 5904 -- [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean : Mapping filter: 'httpTraceFilter' to: [/*]
+2018-09-05 14:08:45.876 +0530  INFO 5904 -- [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean : Mapping filter: 'webMvcMetricsFilter' to: [/*]
+2018-09-05 14:08:45.876 +0530  INFO 5904 -- [localhost-startStop-1] org.springframework.boot.web.servlet.ServletRegistrationBean : Servlet dispatcherServlet mapped to [/]
+2018-09-05 14:08:46.170 +0530  WARN 5904 -- [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'adminServerApplication': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: username cannot be null
+2018-09-05 14:08:46.174 +0530  INFO 5904 -- [main] org.apache.catalina.core.StandardService : Stopping service [Tomcat]
+2018-09-05 14:08:46.238 +0530  INFO 5904 -- [main] o.s.b.a.logging.ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-09-05 14:08:46.243 +0530 ERROR 5904 -- [main] org.springframework.boot.SpringApplication : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'adminServerApplication': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: username cannot be null
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:379)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1350)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:580)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:503)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:760)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:869)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:395)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1255)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1243)
+	at com.marks.support.adminserver.AdminServerApplication.main(AdminServerApplication.java:33)
+Caused by: java.lang.IllegalArgumentException: username cannot be null
+	at org.springframework.util.Assert.notNull(Assert.java:193)
+	at org.springframework.security.core.userdetails.User$UserBuilder.username(User.java:377)
+	at org.springframework.security.core.userdetails.User.withUsername(User.java:261)
+	at org.springframework.security.config.annotation.authentication.configurers.provisioning.UserDetailsManagerConfigurer$UserDetailsBuilder.username(UserDetailsManagerConfigurer.java:142)
+	at org.springframework.security.config.annotation.authentication.configurers.provisioning.UserDetailsManagerConfigurer$UserDetailsBuilder.access$100(UserDetailsManagerConfigurer.java:112)
+	at org.springframework.security.config.annotation.authentication.configurers.provisioning.UserDetailsManagerConfigurer.withUser(UserDetailsManagerConfigurer.java:103)
+	at com.marks.support.adminserver.AdminServerApplication.configureGlobal(AdminServerApplication.java:78)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:699)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:91)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:373)
+	... 17 common frames omitted
+
+2018-09-05 14:09:35.828 +0530  INFO 7984 -- [main] o.s.context.annotation.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@70e9c95d: startup date [Wed Sep 05 14:09:35 IST 2018]; root of context hierarchy
+2018-09-05 14:09:36.265 +0530  INFO 7984 -- [main] o.s.b.f.annotation.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-09-05 14:09:36.331 +0530  INFO 7984 -- [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$7777c8fa] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-09-05 14:09:37.224 +0530  INFO 7984 -- [main] o.s.cloud.config.client.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:8888
+2018-09-05 14:09:38.341 +0530  INFO 7984 -- [main] o.s.cloud.config.client.ConfigServicePropertySourceLocator : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2018-09-05 14:09:38.342 +0530  WARN 7984 -- [main] o.s.cloud.config.client.ConfigServicePropertySourceLocator : Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/admin-server/local/development": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+2018-09-05 14:09:38.363 +0530  INFO 7984 -- [main] com.marks.support.adminserver.AdminServerApplication : The following profiles are active: local
+2018-09-05 14:09:38.394 +0530  INFO 7984 -- [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@60d8c0dc: startup date [Wed Sep 05 14:09:38 IST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@70e9c95d
+2018-09-05 14:09:40.657 +0530  INFO 7984 -- [main] org.springframework.cloud.context.scope.GenericScope : BeanFactory id=86edb119-808b-3049-a090-cdf4d4b18e05
+2018-09-05 14:09:40.704 +0530  INFO 7984 -- [main] o.s.b.f.annotation.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-09-05 14:09:40.942 +0530  INFO 7984 -- [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$7777c8fa] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-09-05 14:09:41.543 +0530  INFO 7984 -- [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http)
+2018-09-05 14:09:41.581 +0530  INFO 7984 -- [main] org.apache.catalina.core.StandardService : Starting service [Tomcat]
+2018-09-05 14:09:41.581 +0530  INFO 7984 -- [main] org.apache.catalina.core.StandardEngine : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-09-05 14:09:41.595 +0530  INFO 7984 -- [localhost-startStop-1] org.apache.catalina.core.AprLifecycleListener : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jre1.8.0_102\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_102/bin/server;C:/Program Files/Java/jre1.8.0_102/bin;C:/Program Files/Java/jre1.8.0_102/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Program Files\Dell\DW WLAN Card;;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64:C:\Program Files\Java\jdk1.8.0_102;C:\Program Files\nodejs\;C:\Users\p7111009\AppData\Local\Programs\Python\Launcher\;C:\Program Files (x86)\Google\Chrome\Application;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Program Files\Dell\DW WLAN Card;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64:D:\Deployment\jdk1.8.0_102;D:\Deployment\Git\cmd;C:\Program Files\nodejs\node_modules\npm;D:\Deployment\gradle\gradle-4.5.1\bin;D:\Deployment\Python\Python36-32;D:\Deployment\Python\Python36-32\Scripts;D:\Deployment\jdk1.8.0_102\lib;D:\Deployment\jdk1.8.0_102\jre\lib;D:\Deployment\eclipse;;.]
+2018-09-05 14:09:41.879 +0530  INFO 7984 -- [localhost-startStop-1] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2018-09-05 14:09:41.879 +0530  INFO 7984 -- [localhost-startStop-1] org.springframework.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 3485 ms
+2018-09-05 14:09:42.306 +0530  WARN 7984 -- [localhost-startStop-1] com.netflix.config.sources.URLConfigurationSource : No URLs will be polled as dynamic configuration sources.
+2018-09-05 14:09:42.306 +0530  INFO 7984 -- [localhost-startStop-1] com.netflix.config.sources.URLConfigurationSource : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-09-05 14:09:42.333 +0530  INFO 7984 -- [localhost-startStop-1] com.netflix.config.DynamicPropertyFactory : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@326d2908
+2018-09-05 14:09:43.916 +0530  INFO 7984 -- [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-09-05 14:09:43.916 +0530  INFO 7984 -- [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-09-05 14:09:43.917 +0530  INFO 7984 -- [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-09-05 14:09:43.917 +0530  INFO 7984 -- [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean : Mapping filter: 'requestContextFilter' to: [/*]
+2018-09-05 14:09:43.917 +0530  INFO 7984 -- [localhost-startStop-1] o.s.boot.web.servlet.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-09-05 14:09:43.918 +0530  INFO 7984 -- [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean : Mapping filter: 'httpTraceFilter' to: [/*]
+2018-09-05 14:09:43.918 +0530  INFO 7984 -- [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean : Mapping filter: 'webMvcMetricsFilter' to: [/*]
+2018-09-05 14:09:43.918 +0530  INFO 7984 -- [localhost-startStop-1] org.springframework.boot.web.servlet.ServletRegistrationBean : Servlet dispatcherServlet mapped to [/]
+2018-09-05 14:09:44.183 +0530  WARN 7984 -- [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'adminServerApplication': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: username cannot be null
+2018-09-05 14:09:44.187 +0530  INFO 7984 -- [main] org.apache.catalina.core.StandardService : Stopping service [Tomcat]
+2018-09-05 14:09:44.214 +0530  INFO 7984 -- [main] o.s.b.a.logging.ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-09-05 14:09:44.219 +0530 ERROR 7984 -- [main] org.springframework.boot.SpringApplication : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'adminServerApplication': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: username cannot be null
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:379)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1350)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:580)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:503)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:760)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:869)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:395)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1255)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1243)
+	at com.marks.support.adminserver.AdminServerApplication.main(AdminServerApplication.java:33)
+Caused by: java.lang.IllegalArgumentException: username cannot be null
+	at org.springframework.util.Assert.notNull(Assert.java:193)
+	at org.springframework.security.core.userdetails.User$UserBuilder.username(User.java:377)
+	at org.springframework.security.core.userdetails.User.withUsername(User.java:261)
+	at org.springframework.security.config.annotation.authentication.configurers.provisioning.UserDetailsManagerConfigurer$UserDetailsBuilder.username(UserDetailsManagerConfigurer.java:142)
+	at org.springframework.security.config.annotation.authentication.configurers.provisioning.UserDetailsManagerConfigurer$UserDetailsBuilder.access$100(UserDetailsManagerConfigurer.java:112)
+	at org.springframework.security.config.annotation.authentication.configurers.provisioning.UserDetailsManagerConfigurer.withUser(UserDetailsManagerConfigurer.java:103)
+	at com.marks.support.adminserver.AdminServerApplication.configureGlobal(AdminServerApplication.java:78)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:699)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:91)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:373)
+	... 17 common frames omitted
+
+2018-09-05 14:10:26.558 +0530  INFO 10936 -- [main] o.s.context.annotation.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@25641d39: startup date [Wed Sep 05 14:10:26 IST 2018]; root of context hierarchy
+2018-09-05 14:10:26.902 +0530  INFO 10936 -- [main] o.s.b.f.annotation.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-09-05 14:10:26.973 +0530  INFO 10936 -- [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$c5f1c24b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-09-05 14:10:28.006 +0530  INFO 10936 -- [main] o.s.cloud.config.client.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:8888
+2018-09-05 14:10:29.109 +0530  INFO 10936 -- [main] o.s.cloud.config.client.ConfigServicePropertySourceLocator : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2018-09-05 14:10:29.110 +0530  WARN 10936 -- [main] o.s.cloud.config.client.ConfigServicePropertySourceLocator : Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/admin-server/local/development": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+2018-09-05 14:10:29.130 +0530  INFO 10936 -- [main] com.marks.support.adminserver.AdminServerApplication : The following profiles are active: local
+2018-09-05 14:10:29.158 +0530  INFO 10936 -- [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6db66836: startup date [Wed Sep 05 14:10:29 IST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@25641d39
