@@ -1,5 +1,6 @@
 info:
   component: discovery-server
+  version: 1.0.2-RELEASE
   
 encrypt:
   failOnError: false

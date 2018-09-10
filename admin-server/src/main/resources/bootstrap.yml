@@ -1,5 +1,6 @@
 info:
   component: admin-server
+  version: 1.0.1-RELEASE
   
 encrypt:
   failOnError: false

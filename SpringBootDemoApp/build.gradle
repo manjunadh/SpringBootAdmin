@@ -1,0 +1,218 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.3.RELEASE'
+        swaggerVersion = '2.8.0'
+        groovyVersion = '2.4.13'
+        spockVersion = '1.1-groovy-2.4'
+        springCloudVersion = 'Finchley.SR1'
+        jsonCore = '1.2.19'
+        sonarVersion = '2.6'
+
+        group = "org.sonarqube"
+
+
+    }
+
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+
+    }
+
+}
+
+plugins {
+
+    id "java"
+    id "jacoco"
+    id "groovy"
+    id "org.sonarqube" version "2.6"
+}
+sonarqube {
+    properties {
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.projectName", "inventory-lookup-services"
+        property "sonar.projectKey", "org.sonarqube:inventory-lookup-services"
+        property "sonar.groovy.binaries", "${project.buildDir.name}${File.separator}classes"
+        property "sonar.groovy.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"
+        property 'sonar.exclusions', "**/com/marks/**Application*, **/com/marks/**/configuration/*, **/com/marks/**/exception/*, **/com/marks/**/model/*, **/com/marks/**/model/dto/*, **/com/marks/**/validation/*"
+        property "sonar.projectBaseDir", "$projectDir/.."
+    }
+
+
+}
+
+
+allprojects {
+
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+
+
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'groovy'
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+    apply plugin: "io.spring.dependency-management"
+
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+    def isCommonProject = it.name.startsWith('common')
+
+    // do not apply the boot plugin to common
+    if (!isCommonProject) {
+        apply plugin: 'org.springframework.boot'
+    }
+
+    // common jars for all service sub-projects using spring boot and cloud
+    dependencies {
+
+        // only apply boot stuff to the regular projects
+        if (!isCommonProject) {
+
+            // use tomcat by default
+            compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+
+            // actuator - health/metrics endpoints
+            compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
+
+            // spring cloud - based on Eureaka Discovery, Hystrix, Config Client built from https://start.spring.io/
+            compile("org.springframework.cloud:spring-cloud-starter-config")
+            compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+            compile('org.springframework.cloud:spring-cloud-starter-netflix-hystrix')
+            compile('org.springframework.cloud:spring-cloud-starter-openfeign')
+
+            compile('org.springframework.cloud:spring-cloud-starter-sleuth')
+
+            //swagger
+            compile("io.springfox:springfox-swagger2:${swaggerVersion}")
+            compile("io.springfox:springfox-swagger-ui:${swaggerVersion}")
+
+            // TODO is this really needed by swagger?
+            compile("org.jsondoc:jsondoc-core:${jsonCore}")
+
+            //to get additional end points in spring boot admin
+            compile("org.jolokia:jolokia-core")
+            // Spock testing
+            compile("org.spockframework:spock-core:${spockVersion}")
+            compile("org.spockframework:spock-spring:${spockVersion}")
+
+            // to compile Groovy specifically in location service
+            compile "org.codehaus.groovy:groovy-all:${groovyVersion}"
+
+            //Test
+            compile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+            testCompile("junit:junit")
+
+            // for VND errors
+            compile("org.springframework.boot:spring-boot-starter-hateoas")
+
+
+            // lombok
+            compile("org.projectlombok:lombok")
+        }
+        else{
+            // we do need spring for the common project
+            compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+        }
+    }
+
+    task integrationTest(type: Test) {
+        useJUnit {
+            includeCategories "com.ness.hackathon.tests.IntegrationTest"
+        }
+
+        // all integration tests should point to config server on fjms1ap01d and run under bamboo profile
+        systemProperties['spring.profiles.active'] = 'local'
+
+    }
+    task unitTest(type: Test) {
+        useJUnit {
+            includeCategories 'com.ness.hackathon.tests.UnitTest'
+        }
+
+    }
+
+    task functionalTest(type: Test) {
+
+        //this is passed in as a command line argument - ie. gradle clean -Dfunctional.test.url=http://fjms1ap01d.unix.ctcwest.ctc:8765 :inventory-composite-service:functionalTest
+        systemProperty "functional_test_url", System.getProperty("functional_test_url")
+
+        useJUnit {
+            includeCategories 'com.ness.hackathon.demoapp.FunctionalTest'
+        }
+
+    }
+
+    test {
+
+       if (System.getProperty('integration_test') != null && System.getProperty('integration_test') == 'true') {
+
+            println "Running unit and integration tests"
+
+            // all integration tests should point to config server on fjms1ap01d and run under bamboo profile
+            // if this profile is not set up in the project obviously things will break
+            systemProperties['spring.profiles.active'] = 'local'
+
+            useJUnit {
+                excludeCategories = ["com.ness.hackathon.demoapp.tests.FunctionalTest", "com.ness.hackathon.demoapp.tests.LoadTest"]
+            }
+
+        } else {
+
+            println "Running only unit tests"
+            useJUnit {
+                excludeCategories = ["com.ness.hackathon.demoapp.tests.IntegrationTest", "com.ness.hackathon.demoapp.FunctionalTest", "com.marks.common.tests.LoadTest"]
+            }
+
+        }
+
+
+    }
+
+    group = 'com.marks'
+
+    // mixed mode compilation using groovy - so exclude java and let groovyc do everything
+    sourceSets {
+        main {
+            java { srcDirs = [] }    // no source dirs for the java compiler
+            groovy { srcDirs = ["src/main/java", "src/main/groovy"] }  // compile   everything in src/main with groovy
+        }
+
+        test {
+            java { srcDirs = [] }    // no source dirs for the java compiler
+            groovy { srcDirs = ["src/test/java", "src/test/groovy"] }  // compile   everything in src/test with groovy
+        }
+    }
+
+    // this fixes the bootRun task so you can pass environment parameters when running locally- ie. gradle -Dspring.profiles.active=qa1,qa1Node1 -Dspring.cloud.config.label='xxxx' :location-service:bootRun
+    bootRun {
+        systemProperties System.properties
+    }
+}
+
+jar {
+    baseName = 'spring-boot-demo'
+}
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.4.1'
+}

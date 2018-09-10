@@ -1,0 +1,28 @@
+info:
+  component: Resource-application
+  version: 1.0.1-RELEASE
+
+encrypt:
+  failOnError: false
+  key: abcdef
+
+spring:
+  application:
+    name: Resource-application
+  profiles:
+    active: local
+  cloud:
+    config:
+      failFast: false
+
+---
+ spring:
+  profiles: local
+  cloud:
+    config:
+      uri: http://localhost:8888
+      label: development
+      username: root
+      password: '{cipher}3fb2a2a25d3143ee052178842685af1a49a6e4d926c8bf44f8160c3609f7d1b6'
+
+---

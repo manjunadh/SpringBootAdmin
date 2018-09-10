@@ -52,7 +52,7 @@ allprojects {
         // all integration tests should point to config server on mjms1ap01d and run under bamboo profile
         systemProperties['spring.profiles.active'] = 'bamboo'
         useJUnit {
-            includeCategories 'com.marks.support.tests.IntegrationTest'
+            includeCategories 'com.ness.hackathon.support.tests.IntegrationTest'
         }
     }
 
@@ -70,7 +70,7 @@ allprojects {
         }
     }
 
-    group = 'com.marks'
+    group = 'com.ness.hackathon'
 
 }
 
