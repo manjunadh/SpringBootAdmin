@@ -52,6 +52,7 @@ spring:
 logging:
   level:
     org.springframework.boot.context.embedded.tomcat: INFO  # Required for deploy script to be able to read port number from log file
+    org.springframework.beans: OFF
 logging.file: /apps/microservices/logs/support/discovery-server.log
 ---
 spring:

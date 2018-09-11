@@ -18,7 +18,6 @@ import de.codecentric.boot.admin.server.config.EnableAdminServer;
 
 @Configuration
 @EnableAutoConfiguration
-@Profile({ "local", "development", "qa1", "pp", "prod", "qa2", "qa3" })
 @EnableWebSecurity
 @EnableAdminServer
 public class AdminServerApplication extends WebSecurityConfigurerAdapter{
